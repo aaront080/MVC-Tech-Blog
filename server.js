@@ -21,7 +21,9 @@ const sess = {
     })
 };
 
+//initializing express
 const app =  express();
+//defining port
 const PORT = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, 'public')));

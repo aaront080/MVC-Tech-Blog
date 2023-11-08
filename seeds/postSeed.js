@@ -8,7 +8,7 @@ const postData = [
     },
     {
         title: "Quantum computing",
-        post_text: "quantum computing is not the future of computer science",
+        post_text: "quantum computing is now the future of computer science",
         user_id: 1
     },
     {

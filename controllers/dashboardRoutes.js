@@ -17,7 +17,7 @@ router.get('/', withAuth, (req, res) => {
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_on'],
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -31,7 +31,7 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(postData => {
         const posts = postData.map(post => post.get({ plain: true }));
-        res.render('dashboard', {posts, loggedin: true});
+        res.render('dashboard', { posts, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -70,34 +70,13 @@ router.get('/edit/:id', withAuth, (req, res) => {
             res.status(404).json({ message: 'No post found with ID'});
             return;
         }
-        const post = dataPost.get({ plain: true });
-        res.render('edit-post', {post, loggedIn: true });
+        const posts = postData.get({ plain: true });
+        res.render('edit-post', { posts, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
-});
-
-router.get('/edituser', withAuth, (req,res) => {
-    User.findOne({
-        attributes: { exclude: ['password']},
-        where: {
-            id: req.session.user_id
-        }
-    })
-    .then(userData => {
-        if (!userData) {
-            res.status(404).json({ message: 'No user found with ID'});
-            return;
-        }
-        const user = userData.get({ plain: true });
-        res.render('edit-user', {user, loggedIn: true});
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
 });
 
 module.exports = router;
