@@ -30,7 +30,14 @@ Anyone that wants to generate a professional README can utilize application.
 Click this image to see a walkthrough of this application!
 
 ## Contributing
-N/A
+- Referenced the Xpert Learning Assistant
+- Referenced class activities found in the 14-MVC module
+- https://www.npmjs.com/package/bcrypt
+- https://www.npmjs.com/package/connect-session-sequelize
+- https://www.npmjs.com/package/dotenv
+- https://expressjs.com/en/guide/routing.html
+- https://www.npmjs.com/package/express-handlebars
+- https://sequelize.org/docs/v7/models/data-types/
 
 ## Tests
 N/A
