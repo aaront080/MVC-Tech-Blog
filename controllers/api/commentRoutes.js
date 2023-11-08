@@ -43,4 +43,4 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-module.export = router;
+module.exports = router;

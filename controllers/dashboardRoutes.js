@@ -48,7 +48,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'id',
             'post_text',
             'title',
-            'created_on',
+            'created_at',
         ],
         include: [
             {
@@ -74,7 +74,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.render('edit-post', {post, loggedIn: true });
     })
     .catch(err => {
-        console.log(err):
+        console.log(err);
         res.status(500).json(err);
     });
 });
